@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.Duration;
+
 public class Test2 {
 
     public static void main(String[] args) {
@@ -15,6 +17,7 @@ public class Test2 {
         //2- Go to "https://vytrack.com/"
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://vytrack.com/");
 
         //3- Click LOGIN button
