@@ -19,25 +19,29 @@ public class Task3 {
         try {
             //TC003 As a user I should be able to select my favorite color and sport
             //  1- Open a chrome browser
-
             driver.manage().window().maximize();
+
             //    2- Goto https://practice.cydeo.com/
             driver.get("https://practice.cydeo.com/");
 
             //    3- Click Radio Buttons
             driver.findElement(By.partialLinkText("Radio")).click();
+
             //    4- Verify title contains Radio buttons
             Assert.assertTrue(driver.getTitle().contains("Radio buttons"));
+
             //    5- Select the favorite color as Red
             WebElement redRadioButton = driver.findElement(By.id("red"));
             redRadioButton.click();
+
             //    6- Verify the Red is selected
             Assert.assertTrue(redRadioButton.isSelected());
+
             //    7- Select the favorite sport as Football
             WebElement footballRadioButton = driver.findElement(By.id("football"));
             footballRadioButton.click();
-            //    8- Verify the Football is selected
 
+            //    8- Verify the Football is selected
             Assert.assertTrue(footballRadioButton.isSelected());
 
         } finally {
