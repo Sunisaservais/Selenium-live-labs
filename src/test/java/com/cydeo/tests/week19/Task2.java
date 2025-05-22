@@ -26,12 +26,13 @@ public class Task2 {
         dateInput.click();
 
         //     3- Get all elements(td) of calendar table using findElements method
-        List<WebElement> calendarDays = driver.findElements(By.cssSelector("table.ui-datepicker-calendar td:not(.ui-datepicker-other-month)"));
+        List<WebElement> calendarDays = driver.findElements(By.xpath("//table[@class='ui-datepicker-calendar']//td"));
 
         //     4- Get the text of all elements(td) of calendar table
         for (WebElement day : calendarDays) {
             System.out.print(day.getText() + " ");
         }
+
         System.out.println();
 
         //     5- Click 12. day of month
@@ -45,13 +46,13 @@ public class Task2 {
         //     6- Verify date of "05/12/2025" has been entered in input area.
         //     ExpectedDate need to change from 2024 to 2025
         String expectedDate = "05/12/2025";
-        String enteredDate = dateInput.getAttribute("value");
-        System.out.println("Expected = " + enteredDate);
+        String actualDate = dateInput.getAttribute("value");
+        System.out.println("Expected = " + actualDate);
 
-        if (enteredDate.equals(expectedDate)) {
-            System.out.println("DATE VERIFICATION PASSED");
+        if (actualDate.equals(expectedDate)) {
+            System.out.println("Date verification passed");
         } else {
-            System.out.println("DATE VERIFICATION FAILED");
+            System.out.println("Date verification failed");
         }
 
         driver.quit();
